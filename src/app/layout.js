@@ -1,6 +1,8 @@
 import classNames from "@/utils/classNames";
 import "./globals.css";
 import { Roboto } from "next/font/google";
+import Navbar from "@/components/header/Navbar";
+import Footer from "@/components/footer/Footer";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -21,8 +23,13 @@ export default function RootLayout({ children }) {
           roboto.variable,
           "container mx-auto px-2, font-roboto"
         )}
+        suppressHydrationWarning={true}
       >
-        {children}
+        <div>
+          <Navbar />
+          <div className="min-h-[calc(100vh-390px)]">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
