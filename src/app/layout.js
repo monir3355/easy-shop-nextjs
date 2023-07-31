@@ -3,6 +3,7 @@ import "./globals.css";
 import { Roboto } from "next/font/google";
 import Navbar from "@/components/header/Navbar";
 import Footer from "@/components/footer/Footer";
+import Providers from "@/providers/Index";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -25,11 +26,13 @@ export default function RootLayout({ children }) {
         )}
         suppressHydrationWarning={true}
       >
-        <div>
-          <Navbar />
-          <div className="min-h-[calc(100vh-390px)]">{children}</div>
-          <Footer />
-        </div>
+        <Providers>
+          <div>
+            <Navbar />
+            <div className="min-h-[calc(100vh-390px)]">{children}</div>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );
